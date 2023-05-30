@@ -17,6 +17,7 @@ public class MondayExample {
         // TODO code application logic here
         System.out.println("GitHub Operations");
         System.out.println("GitHub Operations: Pull");
+        System.out.println("GitHub Operations: Fetch");
     }
     
 }
