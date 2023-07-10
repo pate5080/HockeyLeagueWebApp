@@ -18,17 +18,30 @@ import java.util.Scanner;
  */
 public class Days {
 
+    enum Weekdays {
+        MONDAY,
+        TUESDAY,
+        WEDNESDAY,
+        THURSDAY,
+        FRIDAY,
+        SATURDAY,
+        SUNDAY
+    }
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
          
     Scanner in =new Scanner(System.in);
-    System.out.println("Enter the day number (one,two,three,four,five) in string");
-    String code = in.next();
-    Weekdays t= new Weekdays();
-    t.nameOfDay(code); 
+    System.out.print("Enter the day number (1-7): ");
+    int code = in.nextInt();
+    
+    if (code >= 1 && code <= 7) {
+        Weekdays day = Weekdays.values()[code - 1];
+        System.out.println(day);
+    } else {
+        System.out.println("Invalid input!");
     }// TODO code application logic here
     
-    
+    } 
 }
