@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Player List</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Players</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Team ID</th>
+            <th>Role</th>
+            <th>Active Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="player : ${players}">
+            <td th:text="${player.id}"></td>
+            <td th:text="${player.playerName}"></td>
+            <td th:text="${player.playerAddress}"></td>
+            <td th:text="${player.teamID}"></td>
+            <td th:text="${player.playerRole}"></td>
+            <td th:text="${player.playerActiveStatus}"></td>
+            <td>
+                <a th:href="@{/players/edit/{id}(id=${player.id})}">Edit</a>
+                <a th:href="@{/players/delete/{id}(id=${player.id})}">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<a href="/players/new">Add New Player</a>
+    </body>
+</html>

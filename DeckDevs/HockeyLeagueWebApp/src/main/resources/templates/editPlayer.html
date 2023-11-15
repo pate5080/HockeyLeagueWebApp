@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Edit Player</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Edit Player</h1>
+
+        <form th:action="@{/players/update/{id}(id=${player.id})}" th:object="${player}" method="post">
+            <input type="hidden" th:field="*{id}" />
+
+            <label for="playerName">Name:</label>
+            <input type="text" id="playerName" th:field="*{playerName}" required />
+
+            <label for="playerAddress">Address:</label>
+            <input type="text" id="playerAddress" th:field="*{playerAddress}" />
+
+            <label for="teamID">Team ID:</label>
+            <input type="number" id="teamID" th:field="*{teamID}" required />
+
+            <label for="playerRole">Role:</label>
+            <input type="text" id="playerRole" th:field="*{playerRole}" required />
+
+            <label for="playerActiveStatus">Active Status (T/F):</label>
+            <input type="text" id="playerActiveStatus" th:field="*{playerActiveStatus}" required />
+
+            <button type="submit">Update</button>
+        </form>
+
+        <a href="/players">Back to list</a>
+    </body>
+</html>
